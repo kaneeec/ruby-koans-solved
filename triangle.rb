@@ -13,11 +13,19 @@
 # and
 #   about_triangle_project_2.rb
 #
+require "set"
+
 def triangle(a, b, c)
-  raise TriangleError if [a,b,c].min <= 0
-  x, y, z = [a,b,c].sort
-  raise TriangleError if x + y <= z
-  [:equilateral,:isosceles,:scalene].fetch([a,b,c].uniq.size - 1)
+  if a <= 0 or b <= 0 or c <= 0
+    raise TriangleError
+  end
+
+  sorted = [a, b, c].sort.reverse
+  if sorted[0] >= sorted[1] + sorted[2]
+    raise TriangleError
+  end
+
+  return [:equilateral, :isosceles, :scalene][[a, b, c].to_set.length - 1]
 end
 
 # Error class used in part 2.  No need to change this code.

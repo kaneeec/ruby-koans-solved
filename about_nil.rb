@@ -17,7 +17,7 @@ class AboutNil < Neo::Koan
 
       # What message was attached to the exception?
       # (HINT: replace __ with part of the error message.)
-      assert_match(/some_method_nil_doesnt_know_about/, ex.message)
+      assert_match(/undefined method/, ex.message)
     end
   end
 
@@ -33,6 +33,7 @@ class AboutNil < Neo::Koan
     # or
     #    obj == nil
     # Why?
+    # >>> nil? because it's an object property, you don't have to do micro-comparisons as in case of ==
   end
 
 end

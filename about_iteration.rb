@@ -77,7 +77,7 @@ class AboutIteration < Neo::Koan
   def test_find_locates_the_first_element_matching_a_criteria
     array = ["Jim", "Bill", "Clarence", "Doug", "Eli"]
 
-    assert_equal "Clarence", array.find { |item| item.size > 4 }
+    assert_equal "Clarence", array.find { |item| item.length > 4 }
   end
 
   def test_inject_will_blow_your_mind
@@ -89,6 +89,7 @@ class AboutIteration < Neo::Koan
 
     # Extra Credit:
     # Describe in your own words what inject does.
+    # >>> classic fold/reduce function
   end
 
   def test_all_iteration_methods_work_on_any_collection_not_just_arrays
@@ -118,5 +119,6 @@ class AboutIteration < Neo::Koan
   #   # code to read 'file'
   #
   # When you get to the "AboutSandwichCode" koan, recheck your answer.
+  # >>> automatically closes resource?
 
 end

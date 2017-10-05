@@ -124,6 +124,7 @@ class AboutClasses < Neo::Koan
     end
     # THINK ABOUT IT:
     # Why is this so?
+    # >>> because we forced the constructor with param
   end
 
   def test_different_objects_have_different_instance_variables

@@ -3,22 +3,23 @@ require File.expand_path(File.dirname(__FILE__) + '/neo')
 # Implement a DiceSet Class here:
 #
 class DiceSet
-
   attr_reader :values
 
-  def roll(dices)
-    @values = Array.new(dices) { dice_roll }
+  def roll(num_of_dices)
+    new_values = []
+    num_of_dices.times { new_values << valid_random_throw }
+    @values = new_values
   end
-
 
   private
 
-  def dice_roll
-    num = 0
-    while num == 0
-      num = Random.new.rand(7)
+  def valid_random_throw
+    while true
+      number = rand(6)
+      if number > 0
+        return number
+      end
     end
-    return num
   end
 end
 
@@ -57,13 +58,14 @@ class AboutDiceProject < Neo::Koan
     second_time = dice.values
 
     assert_not_equal first_time, second_time,
-      "Two rolls should not be equal"
+                     "Two rolls should not be equal"
 
     # THINK ABOUT IT:
     #
     # If the rolls are random, then it is possible (although not
     # likely) that two consecutive rolls are equal.  What would be a
     # better way to test this?
+    # >>> check if the result array is the same (using object_id)
   end
 
   def test_you_can_roll_different_numbers_of_dice

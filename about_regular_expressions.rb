@@ -33,6 +33,7 @@ class AboutRegularExpressions < Neo::Koan
     # THINK ABOUT IT:
     #
     # When would * fail to match?
+    # >>> never
   end
 
   # THINK ABOUT IT:
@@ -144,6 +145,7 @@ class AboutRegularExpressions < Neo::Koan
   # THINK ABOUT IT:
   #
   # Explain the difference between a character class ([...]) and alternation (|).
+  # >>> [...] matches any of the listed, | matches one of the sequences
 
   # ------------------------------------------------------------------
 

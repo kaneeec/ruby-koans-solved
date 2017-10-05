@@ -23,6 +23,7 @@ class AboutConstants < Neo::Koan
 
   class Animal
     LEGS = 4
+
     def legs_in_animal
       LEGS
     end
@@ -68,6 +69,14 @@ class AboutConstants < Neo::Koan
 
   # QUESTION: Which has precedence: The constant in the lexical scope,
   # or the constant from the inheritance hierarchy?
+  # >>> lexical scope
+  #     constant definition in this order:
+  #     1. The enclosing scope
+  #     2. Any outer scopes (repeat until top level is reached)
+  #     3. Included modules
+  #     4. Superclass(es)
+  #     5. Object
+  #     6. Kernel
 
   # ------------------------------------------------------------------
 
@@ -84,4 +93,6 @@ class AboutConstants < Neo::Koan
   # QUESTION: Now which has precedence: The constant in the lexical
   # scope, or the constant from the inheritance hierarchy?  Why is it
   # different than the previous answer?
+  # >>> inherited because MyAnimals::Oyster puts me in the global scope,
+  #     not in the scope of MyAnimals
 end

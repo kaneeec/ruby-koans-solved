@@ -30,7 +30,7 @@ class AboutHashes < Neo::Koan
     # THINK ABOUT IT:
     #
     # Why might you want to use #fetch instead of #[] when accessing hash keys?
-    # - fetch has more options
+    # >>> for handling missing keys
   end
 
   def test_changing_hashes
@@ -42,7 +42,7 @@ class AboutHashes < Neo::Koan
 
     # Bonus Question: Why was "expected" broken out into a variable
     # rather than used as a literal?
-    # - because it would be a block, not a hash... allowed syntax is ({hash}, hash)
+    # >>> {} is a block, but it can be wrapped into () to make it work
   end
 
   def test_hash_is_unordered

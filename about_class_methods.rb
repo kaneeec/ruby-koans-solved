@@ -158,6 +158,7 @@ class AboutClassMethods < Neo::Koan
   #
   # Which do you prefer and why?
   # Are there times you might prefer one over the other?
+  # >>> somehow I prefer the first one, not sure why
 
   # ------------------------------------------------------------------
 

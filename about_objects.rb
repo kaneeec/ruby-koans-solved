@@ -38,14 +38,14 @@ class AboutObjects < Neo::Koan
 
     # THINK ABOUT IT:
     # What pattern do the object IDs for small integers follow?
-    # ID = num * 2 + 1
+    # >>> http://archive.oreilly.com/pub/post/ruby_values_and_object_ids.html
   end
 
   def test_clone_creates_a_different_object
     obj = Object.new
     copy = obj.clone
 
-    assert_equal true, obj           != copy
+    assert_equal true, obj != copy
     assert_equal true, obj.object_id != copy.object_id
   end
 end

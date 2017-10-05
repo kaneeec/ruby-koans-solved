@@ -19,7 +19,7 @@ class AboutSymbols < Neo::Koan
     symbol1 = :a_symbol
     symbol2 = :a_symbol
 
-    assert_equal true, symbol1           == symbol2
+    assert_equal true, symbol1 == symbol2
     assert_equal true, symbol1.object_id == symbol2.object_id
   end
 
@@ -32,14 +32,15 @@ class AboutSymbols < Neo::Koan
   #
   # Why do we convert the list of symbols to strings and then compare
   # against the string value rather than against symbols?
-  # - because comparing to symbol would cause the symbol to be created in case it hasn't been created before
+  # >>> https://stackoverflow.com/a/4686157/419516
 
   in_ruby_version("mri") do
     RubyConstant = "What is the sound of one hand clapping?"
+
     def test_constants_become_symbols
       all_symbols_as_strings = Symbol.all_symbols.map { |x| x.to_s }
 
-      assert_equal false, all_symbols_as_strings.include?("What is the sound of one hand clapping?")
+      assert_equal true, all_symbols_as_strings.include?("RubyConstant")
     end
   end
 
@@ -98,5 +99,5 @@ class AboutSymbols < Neo::Koan
   # THINK ABOUT IT:
   #
   # Why is it not a good idea to dynamically create a lot of symbols?
-  # - because they live forever and can consume a lot of memory
+  # >>> they live in memory for the whole time, wasting it
 end
